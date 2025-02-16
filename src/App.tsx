@@ -9,13 +9,26 @@ const ParentDiv=styled.div`
     border: 5px lilac solid;
     font-family: Arial;
     font-size: calc(3px + 1vw);
+    background-color: #212121;
+`;
+
+const NumUserInputDiv=styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const NumUserInput=styled.input`
+    width: 30vw;
+    margin: 4vw;
+    padding: 1vw;
 `;
 
 export default function App() {
     const [data, setData] = useState<User[]>([]);
+    const [numUsers, setNumUsers] = useState(6);
     useEffect(()=>{
         async function fetchData(): Promise<void> {
-            const rawData = await fetch("https://randomuser.me/api/?results=6");
+            const rawData = await fetch(`https://randomuser.me/api/?results=${numUsers}`);
             const data = await rawData.json();
             // console.log(data.results);
             setData(data.results);
@@ -23,11 +36,19 @@ export default function App() {
         fetchData()
             .then(() => console.log("Data Fetched Successfuly"))
             .catch((e: Error) => console.log("There was the error: " + e))
-    },[data.length])
+    },[numUsers])
 
     return (
         <>
             <ParentDiv>
+                <NumUserInputDiv>
+                    <NumUserInput
+                        type={`number`}
+                        value={numUsers}
+                        placeholder={`Number of Users`}
+                        onChange={(e)=>setNumUsers(Number(e.target.value))}
+                    />
+                </NumUserInputDiv>
                 <RandomUser data={data}/>
             </ParentDiv>
         </>

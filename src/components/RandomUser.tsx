@@ -5,8 +5,7 @@ const AllRandUsersDiv=styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background-color: #212121;
-    padding: 4%;
+    padding: 0 4%;
 `;
 
 const SingleRandUserDiv=styled.div`
