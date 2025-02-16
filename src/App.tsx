@@ -17,7 +17,7 @@ export default function App() {
         async function fetchData(): Promise<void> {
             const rawData = await fetch("https://randomuser.me/api/?results=6");
             const data = await rawData.json();
-            console.log(data.results);
+            // console.log(data.results);
             setData(data.results);
         }
         fetchData()
