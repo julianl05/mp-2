@@ -11,11 +11,12 @@ const AllRandUsersDiv=styled.div`
 const SingleRandUserDiv=styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
     background-color: #FBF5E5;
     padding:5vh;
     margin:5vh;
-    width: 20vw;
+    width: 25vw;
 `;
 
 const UserProfileImg=styled.img`
@@ -27,8 +28,15 @@ const UserProfileImg=styled.img`
 
 const UserName=styled.h1`
     text-wrap:wrap; //learned myself for wrapping text
+    margin:1vh;
+    padding:1vh;
 `;
 
+const UserInfo=styled.p`
+    text-wrap:wrap; //learned myself for wrapping text
+    margin: 0.5vh;
+    padding: 1vh;
+`
 
 export default function RandomUser(props: {data: User[]}) {
     return (
@@ -38,10 +46,10 @@ export default function RandomUser(props: {data: User[]}) {
                     <SingleRandUserDiv key={index}>
                         <UserProfileImg src={user.picture.large} alt={`image of ${user.name.first}`}/>
                         <UserName>{user.name.first} {user.name.last}</UserName>
-                        <p>{user.email}</p>
-                        <p>{user.gender}</p>
-                        <p>{user.dob.age}</p>
-                        <p>{user.dob.age < 26 ? "Young Adult" : "Adult"}</p>
+                        <UserInfo>{user.email}</UserInfo>
+                        <UserInfo>{user.gender}</UserInfo>
+                        <UserInfo>{user.dob.age}</UserInfo>
+                        <UserInfo>{user.dob.age < 26 ? "Young Adult" : "Adult"}</UserInfo>
                     </SingleRandUserDiv>
                 )
             }

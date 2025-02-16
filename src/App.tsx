@@ -8,7 +8,7 @@ const ParentDiv=styled.div`
     margin: auto;
     border: 5px lilac solid;
     font-family: Arial;
-    font-size: calc(3px + 1vw);
+    font-size: calc(3px + 0.8vw);
     background-color: #212121;
 `;
 
