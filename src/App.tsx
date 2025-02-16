@@ -7,6 +7,8 @@ const ParentDiv=styled.div`
     width: 80vw;
     margin: auto;
     border: 5px lilac solid;
+    font-family: Arial;
+    font-size: calc(3px + 1vw);
 `;
 
 export default function App() {

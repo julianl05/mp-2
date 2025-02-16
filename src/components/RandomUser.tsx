@@ -5,20 +5,31 @@ const AllRandUsersDiv=styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background-color: #3D8D7A;
+    background-color: #212121;
+    padding: 4%;
 `;
 
 const SingleRandUserDiv=styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: #B3D8A8;
+    text-align: center;
+    background-color: #FBF5E5;
+    padding:5vh;
+    margin:5vh;
+    width: 20vw;
 `;
 
 const UserProfileImg=styled.img`
+    width: 10vw;
     border-radius: 50%;
-    margin: 4vh
+    margin: 4%;
+    align-self: center;
 `;
+
+const UserName=styled.h1`
+    text-wrap:wrap; //learned myself for wrapping text
+`;
+
 
 export default function RandomUser(props: {data: User[]}) {
     return (
@@ -27,7 +38,7 @@ export default function RandomUser(props: {data: User[]}) {
                 props.data.map((user: User, index: number) => 
                     <SingleRandUserDiv key={index}>
                         <UserProfileImg src={user.picture.large} alt={`image of ${user.name.first}`}/>
-                        <h1>{user.name.first} {user.name.last}</h1>
+                        <UserName>{user.name.first} {user.name.last}</UserName>
                         <p>{user.email}</p>
                         <p>{user.gender}</p>
                         <p>{user.dob.age}</p>
