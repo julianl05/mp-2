@@ -35,7 +35,7 @@ export default function App() {
         }
         fetchData()
             .then(() => console.log("Data Fetched Successfuly"))
-            .catch((e: Error) => console.log("There was the error: " + e))
+            .catch((e: Error) => console.log("There was an error: " + e))
     },[numUsers])
 
     return (
